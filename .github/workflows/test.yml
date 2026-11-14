@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  action-self-test:
+    name: Run action against cloudflare.com
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post-quantum TLS check
+        id: scan
+        uses: ./
+        with:
+          domain: cloudflare.com
+          require-post-quantum: true
+      - name: Confirm outputs
+        run: |
+          echo "grade=${{ steps.scan.outputs.grade }}"
+          echo "post-quantum=${{ steps.scan.outputs.post-quantum }}"
+          echo "key-exchange=${{ steps.scan.outputs.key-exchange }}"
+          test -n "${{ steps.scan.outputs.grade }}"
+          test "${{ steps.scan.outputs.post-quantum }}" = "true"
