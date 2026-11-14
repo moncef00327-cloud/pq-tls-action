@@ -20,7 +20,7 @@ GUIDE = "https://ather-quantum.com/guides/enable-x25519mlkem768-nginx"
 def fetch(base, domain, timeout=60):
     """يعيد (رمز HTTP، القاموس). لا يرفع استثناء لأخطاء HTTP."""
     url = base.rstrip("/") + "/api/v1/scan?domain=" + urllib.parse.quote(domain)
-    req = urllib.request.Request(url, headers={"User-Agent": "quantum-aether-action/1.1.1"})
+    req = urllib.request.Request(url, headers={"User-Agent": "quantum-aether-action/1.1.2"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, json.loads(r.read().decode("utf-8"))

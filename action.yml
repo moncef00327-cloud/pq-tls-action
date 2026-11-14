@@ -1,5 +1,5 @@
 name: "Post-quantum TLS check (Quantum Aether)"
-description: "Check that a website negotiates post-quantum TLS key exchange (X25519MLKEM768) on every deploy."
+description: "Fail CI when your site loses post-quantum TLS (X25519MLKEM768 / ML-KEM). Checks every server address. Free, no account."
 author: "Quantum Aether"
 branding:
   icon: "shield"

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.2 — 2026-11-14
+
+- Clearer Marketplace description. User-Agent `quantum-aether-action/1.1.2`. No change to inputs, outputs or behaviour.
+
 ## v1.1.1 — 2026-11-14
 
 - An undetermined probe (the scanner could not observe a negotiated key-exchange group, `observation_status: undetermined`)
