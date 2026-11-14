@@ -41,6 +41,7 @@ jobs:
 
 - Completed scans are checked against the requested policy. Invalid domains and failed scans fail the job.
 - Unavailable scans fail the job, including rate limits, server errors and incomplete responses.
+- Undetermined results (no negotiated key-exchange group observed) are reported as undetermined, never as classical, and fail `require-post-quantum`.
 - The runner sends the domain to the hosted API. Its server probes the first public IPv4 address on port 443 from one location. CDN and anycast results can vary by location.
 
 Methodology and open data: https://ather-quantum.com/adoption
